@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from openai import OpenAI
 
-# ===== FLASK (para Render não dar erro) =====
+# ===== FLASK (Render) =====
 from flask import Flask
 import threading
 
@@ -70,8 +70,12 @@ Você é o Eclipse Core, uma inteligência administrativa.
             await message.channel.send(texto)
 
         except Exception as e:
-            print(e)
+            print(f"Erro IA: {e}")
             await message.channel.send("⚠️ Erro interno.")
 
 # ===== RUN =====
-bot.run(DISCORD_TOKEN)
+try:
+    print("Iniciando bot...")
+    bot.run(DISCORD_TOKEN)
+except Exception as e:
+    print(f"ERRO AO INICIAR: {e}")

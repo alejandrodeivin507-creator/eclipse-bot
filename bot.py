@@ -11,7 +11,4 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print("BOT ONLINE!!!")
 
-try:
-    client.run(TOKEN)
-except Exception as e:
-    print("ERRO:", e)
+client.run(TOKEN)
